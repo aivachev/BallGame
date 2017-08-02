@@ -21,7 +21,7 @@ public class Dijkstra {
     /* Алгоритм Дейкстры*/
     void dijkstra(int start) {
         boolean[] used = new boolean[vNum]; // массив пометок
-        int[] dist = new int[vNum]; // массив расстояния. dist[v] = минимальное_расстояние(start, v)
+        int[] dist = new int[vNum]; // массив расстояния.
 
         fill(prev, -1);
         fill(dist, INF); // устанаавливаем расстояние до всех вершин INF
@@ -33,11 +33,11 @@ public class Dijkstra {
                 if (!used[nv] && dist[nv] < INF && (v == -1 || dist[v] > dist[nv])) // выбираем самую близкую непомеченную вершину
                     v = nv;
             if (v == -1) break; // ближайшая вершина не найдена
-            used[v] = true; // помечаем ее
+            used[v] = true; //
             for (int nv = 0; nv < vNum; nv++)
-                if (!used[nv] && graph[v][nv] < INF) // для всех непомеченных смежных
+                if (!used[nv] && graph[v][nv] < INF) 
                 {
-                    dist[nv] = min(dist[nv], dist[v] + graph[v][nv]); // улучшаем оценку расстояния (релаксация)
+                    dist[nv] = min(dist[nv], dist[v] + graph[v][nv]); // улучшаем оценку расстояния
                     prev[nv] = v; // помечаем предка
                 }
         }
